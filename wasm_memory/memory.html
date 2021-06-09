@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    let memory = new WebAssembly.Memory({initial:10, maximum:100});
+    new Uint32Array(memory.buffer)[0] = 100;
+    console.log(new Uint32Array(memory.buffer)[0]);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
