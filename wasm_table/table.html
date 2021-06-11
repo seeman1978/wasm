@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    fetch('table.wasm').then(response =>
+        response.arrayBuffer()
+    ).then (bytes =>
+        WebAssembly.instantiate(bytes)
+    ).then(results =>{
+        let tbl = results.instance.exports.tbl;
+        console.log(tbl.get(0)());  //这个语法是何意？
+        console.log(tbl.get(1)());
+    });
+</script>
+</body>
+</html>
